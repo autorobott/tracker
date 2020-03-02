@@ -9,7 +9,7 @@ public class PointTest {
         Point a = new Point(1, 1);
         Point b = new Point(2, 2);
         double expected = 1.4142135623730951;
-        double out = a.distence(b);
+        double out = a.distance(b);
         Assert.assertEquals(expected, out, 0.001);
     }
 
