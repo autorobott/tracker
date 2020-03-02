@@ -1,19 +1,24 @@
 package ru.job4j.condition;
 
-import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
-
 public class Point {
     private int x;
     private int y;
+    private int z;
 
-    public Point(int first, int second) {
-        x = first;
-        y = second;
+    public Point(int pX, int pY) {
+        x = pX;
+        y = pY;
     }
-
-    public double distance(Point that) {
-        return sqrt(pow(x - that.x, 2) + pow(y - that.y, 2));
+    public Point(int pX, int pY, int pZ) {
+        x = pX;
+        y = pY;
+        z = pZ;
+    }
+    public double distance(Point point) {
+        return Math.sqrt((Math.pow((point.x - x), 2) + Math.pow((point.y - y), 2)));
+        }
+    public double distance3d(Point point) {
+        return Math.sqrt((Math.pow((point.x - x), 2) + Math.pow((point.y - y), 2) + Math.pow((point.z - z), 2)));
     }
 
     public static void main(String[] args) {
@@ -23,3 +28,5 @@ public class Point {
         System.out.println(dist);
     }
 }
+
+
