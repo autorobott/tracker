@@ -17,4 +17,5 @@ public class Animal {
         Predator predator = new Predator("Name 2");
         Tiger tiger = new Tiger("Name 3");
     }
+
 }

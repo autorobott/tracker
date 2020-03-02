@@ -5,4 +5,5 @@ public class Predator extends Animal {
         super(pName);
         System.out.println("Predator");
     }
+
 }
