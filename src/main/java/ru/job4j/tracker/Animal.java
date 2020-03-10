@@ -5,6 +5,11 @@ import javax.swing.*;
 public class Animal {
     private String name;
 
+    public Animal() {
+        System.out.println(" ");
+        System.out.println("Animal");
+    }
+
     public Animal(String pName) {
         name = pName;
         System.out.println(" ");
@@ -13,9 +18,13 @@ public class Animal {
     }
 
     public static void main(String[] args) {
-        Animal animal = new Animal("Name 1");
-        Predator predator = new Predator("Name 2");
-        Tiger tiger = new Tiger("Name 3");
+        Animal animal = new Animal();
+        Predator predator = new Predator();
+        Tiger tiger = new Tiger();
+
+        Animal animal1 = new Animal("Name 1");
+        Predator predator1 = new Predator("Name 2");
+        Tiger tiger1 = new Tiger("Name 3");
     }
 
 }
