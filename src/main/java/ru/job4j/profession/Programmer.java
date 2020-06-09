@@ -5,15 +5,4 @@ public class Programmer extends Engineer {
         super(pName);
     }
 
-    public Programmer(String pName, int pHeal, int pTeeth, int pEyes, int pExperience) {
-        super(pName, pHeal, pTeeth, pEyes, pExperience);
-    }
-
-    public void labor(int pLoad) {
-        int load = work(pLoad);
-        if (load >= getExperience()) {
-            levalUp();
-            setEyes(getEyes() - 1);
-        }
-    }
 }

@@ -5,11 +5,7 @@ public abstract class Doctor extends Profession {
         super(pName);
     }
 
-    public Doctor(String pName, int pHeal, int pTeeth, int pEyes, int pExperience) {
-        super(pName, pHeal, pTeeth, pEyes, pExperience);
-    }
-
-    public void heal(Profession obj1) {
+    public void diagnoseHeal() {
 
     }
 }
