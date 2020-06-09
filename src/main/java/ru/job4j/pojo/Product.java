@@ -8,19 +8,15 @@ public class Product {
         name = pName;
         count = pCount;
     }
-
     public String getName() {
         return name;
     }
-
     public void setName(String pName) {
         name = pName;
     }
-
     public int getCount() {
         return count;
     }
-
     public void setCount(int pCount) {
         count = pCount;
     }

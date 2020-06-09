@@ -1,32 +1,23 @@
 package ru.job4j.pojo;
 
+import ru.job4j.profession.Programmer;
+
 import java.awt.*;
 
 public class Shop {
-    static public Product delete(Product[] product, int index) {
-        Product prDelet = product[index];
-        product[index] = null;
-        boolean flagStopSort = false;
-        for (int step1 = 0; step1 < product.length; step1++) {
-            if (flagStopSort) {
-                break;
-            }
-            if (product[step1] == null) {
-                for (int step2 = step1; step2 < product.length; step2++) {
-                    if (product[step2] != null) {
-                        product[step1] = product[step2];
-                        product[step2] = null;
-                        flagStopSort = false;
-                        break;
-                    } else {
-                        flagStopSort = true;
-                    }
+    static public void delete(Product[] product, int index) {
+        int length = product.length;
+        if (index >= 0 && index < length) {
+            if (index != length - 1) {
+                for (int step1 = index; step1 < length - 1; step1++) {
+                    product[step1] = product[step1 + 1];
                 }
+                product[length - 1] = null;
+            } else {
+                product[length - 1] = null;
             }
         }
-        return prDelet;
     }
-
     static public void printArray(Product[] product) {
         for (Product buff : product) {
             if (buff != null) {
@@ -43,10 +34,11 @@ public class Shop {
        Product[] products = new Product[5];
         products[0] = new Product("Milk", 10);
         products[1] = new Product("Bread", 4);
-        products[2] = new Product("Egg", 19);
+        products[4] = new Product("Egg", 19);
 
         printArray(products);
-        delete(products, 1);
+        delete(products, 0);
+        System.out.println("______________");
         printArray(products);
         System.out.println(" ");
 
@@ -58,10 +50,18 @@ public class Shop {
         products1[7] = new Product("Egg", 7);
 
         printArray(products1);
-        System.out.println(" ");
-        delete(products1, 5);
+        System.out.println("_______________");
+        delete(products1, 0);
         printArray(products1);
-
+        System.out.println("_______________");
+        delete(products1, 0);
+        printArray(products1);
+        System.out.println("_______________");
+        delete(products1, 0);
+        printArray(products1);
+        System.out.println("_______________");
+        delete(products1, 2);
+        printArray(products1);
 
     }
 }
