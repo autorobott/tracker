@@ -71,6 +71,7 @@ public class Tracker {
         int indexDel = indexOf(pId);
         if (indexDel > -1) {
             System.arraycopy(items, indexDel + 1, items, indexDel, position - indexDel);
+            items[position - 1] = null;
             position--;
         result = true;
         }
