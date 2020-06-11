@@ -9,8 +9,6 @@ public class StartUI {
         while (run) {
             showMenu();
             int selectMenu = Integer.valueOf(pScanner.nextLine());
-            String name;
-            String id;
             switch (selectMenu) {
                 case 0:
                     System.out.println("=== Create a new Item ====");
@@ -30,17 +28,24 @@ public class StartUI {
                 case 2:
                     System.out.println("=== Edit item ====");
                     System.out.print("Enter id: ");
-                    id = pScanner.nextLine();
+                    String id = pScanner.nextLine();
                     System.out.println("=== Creat new item ===");
                     System.out.print("Enter name: ");
-                    name = pScanner.nextLine();
-                    Item newItem = new Item(name);
-                    pTracker.replace(id, newItem);
+                    Item newItem = new Item(pScanner.nextLine());
+                    if (pTracker.replace(id, newItem)) {
+                        System.out.println(">>Successfully");
+                    } else {
+                        System.out.println(">>ERROR");
+                    }
                     break;
                 case 3:
                     System.out.println("=== Delet item ===");
                     System.out.print("Enter id:");
-                    pTracker.delete(pScanner.nextLine());
+                    if (pTracker.delete(pScanner.nextLine())) {
+                        System.out.println(">>Successfully");
+                    } else {
+                        System.out.println(">>ERROR");
+                    }
                     break;
                 case 4:
                     System.out.println("=== Find item by id ===");
