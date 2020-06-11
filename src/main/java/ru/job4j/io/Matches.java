@@ -16,7 +16,7 @@ public class Matches {
             nameWin = stepGame % 2 == 0 ? "Player 1" : "Player 2";
             System.out.println(nameWin + " takes");
             System.out.println("Sticks " + sticks);
-            int selects = Integer.valueOf(inpute.nextLine());
+            int selects = Integer.parseInt(inpute.nextLine());
             if ((selects >= 1) && (selects <= 3)) {
                 sticks -= selects;
                 stepGame++;
