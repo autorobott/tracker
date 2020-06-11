@@ -12,7 +12,7 @@ public class LicenseTest {
         first.setCode("audio");
         License second = new License();
         second.setCode("audio");
-        assertThat(first.equals(first), is(second.equals(second)));
+        assertThat(first, is(second));
     }
 
 
