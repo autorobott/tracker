@@ -1,19 +1,18 @@
 package ru.job4j.tracker;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class StartUI {
 
-    public void init(Scanner pScanner, Tracker pTracker) {
+    public void init(Input pInput, Tracker pTracker) {
         boolean run = true;
         while (run) {
             showMenu();
-            int selectMenu = Integer.valueOf(pScanner.nextLine());
+            int selectMenu = Integer.valueOf(pInput.askStr("Select: "));
             switch (selectMenu) {
                 case 0:
                     System.out.println("=== Create a new Item ====");
-                    System.out.print("Enter name: ");
-                    Item item = new Item(pScanner.nextLine());
+                    Item item = new Item(pInput.askStr("Enter name: "));
                     pTracker.add(item);
                     break;
                 case 1:
@@ -27,11 +26,9 @@ public class StartUI {
                     break;
                 case 2:
                     System.out.println("=== Edit item ====");
-                    System.out.print("Enter id: ");
-                    String id = pScanner.nextLine();
+                    String id = pInput.askStr("Enter id: ");
                     System.out.println("=== Creat new item ===");
-                    System.out.print("Enter name: ");
-                    Item newItem = new Item(pScanner.nextLine());
+                    Item newItem = new Item(pInput.askStr("Enter name: "));
                     if (pTracker.replace(id, newItem)) {
                         System.out.println(">>Successfully");
                     } else {
@@ -40,8 +37,7 @@ public class StartUI {
                     break;
                 case 3:
                     System.out.println("=== Delet item ===");
-                    System.out.print("Enter id:");
-                    if (pTracker.delete(pScanner.nextLine())) {
+                    if (pTracker.delete(pInput.askStr("Enter id:"))) {
                         System.out.println(">>Successfully");
                     } else {
                         System.out.println(">>ERROR");
@@ -49,8 +45,7 @@ public class StartUI {
                     break;
                 case 4:
                     System.out.println("=== Find item by id ===");
-                    System.out.print("Enter id: ");
-                    Item findItem = pTracker.findById(pScanner.nextLine());
+                    Item findItem = pTracker.findById(pInput.askStr("Enter id: "));
                     if (findItem != null) {
                         System.out.println(findItem.getName() + " : " + findItem.getId());
                     } else {
@@ -60,8 +55,7 @@ public class StartUI {
                 case 5:
                     position = 0;
                     System.out.println("=== Find item by name ===");
-                    System.out.print("Enter name: ");
-                    Item[] findItems = pTracker.findByName(pScanner.nextLine());
+                    Item[] findItems = pTracker.findByName(pInput.askStr("Enter name: "));
                     for (Item items : findItems) {
                         System.out.println(position++ + ". " + items.getName() + " : " + items.getId());
                     }
@@ -84,12 +78,11 @@ public class StartUI {
         System.out.println("4. Find item by id");
         System.out.println("5. Find items by name");
         System.out.println("6. Exit Programm");
-        System.out.print("Select:");
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Input input = new ConsoleInput();
         Tracker tracker = new Tracker();
-        new StartUI().init(scanner, tracker);
+        new StartUI().init(input, tracker);
     }
 }
