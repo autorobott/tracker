@@ -62,8 +62,7 @@ public class StartUI {
         boolean run = true;
         while (run) {
             showMenu();
-            int selectMenu = Integer.valueOf(pInput.askStr("Select: "));
-            int position = 0;
+            int selectMenu = Integer.valueOf(pInput.askInt("Select: "));
             switch (selectMenu) {
                 case 0:
                     createItem(pInput, pTracker);
@@ -87,6 +86,7 @@ public class StartUI {
                     run = exit();
                     break;
                 default:
+                    break;
             }
         }
     }
