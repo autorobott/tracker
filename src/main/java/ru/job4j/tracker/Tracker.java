@@ -1,5 +1,90 @@
+
 package ru.job4j.tracker;
 
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+public class Tracker {
+    private List<Item> items = new ArrayList<Item>();
+
+    private String generateId() {
+        Random rm = new Random();
+        return String.valueOf(rm.nextLong() + System.currentTimeMillis());
+    }
+
+    public Item add(Item pItem) {
+        pItem.setId(generateId());
+        items.add(pItem);
+        return pItem;
+    }
+
+    public Item[] findAll() {
+        Item[] rsl = new Item[items.size()];
+        int index = 0;
+        for (Item buff : items) {
+            rsl[index++] = buff;
+        }
+        rsl = Arrays.copyOf(rsl, index);
+        return rsl;
+    }
+
+    public Item[] findByName(String pName) {
+        Item[] rsl = new Item[items.size()];
+        int newSize = 0;
+        for (Item buff : items) {
+            if (buff.getName().equals(pName)) {
+                rsl[newSize] = buff;
+                newSize++;
+            }
+        }
+        rsl = Arrays.copyOf(rsl, newSize);
+        return rsl;
+    }
+
+    public Item findById(String pId) {
+        Item rsl = new Item();
+        for (Item buff : items) {
+            if (buff.getId().equals(pId)) {
+                rsl = buff;
+                break;
+            }
+        }
+        return rsl;
+    }
+
+    public boolean replace(String pId, Item pItem) {
+        boolean rsl = false;
+        int index = 0;
+        for (Item buff : items) {
+            if (buff.getId().equals(pId)) {
+                pItem.setId(pId);
+                items.remove(index);
+                items.add(index, pItem);
+                rsl = true;
+                break;
+            }
+            index++;
+        }
+        return rsl;
+    }
+
+    public boolean delete(String pId) {
+        boolean rsl = false;
+        int index = 0;
+        for (Item buff : items) {
+            index++;
+            if (buff.getId().equals(pId)) {
+                items.remove(index);
+                rsl = true;
+                break;
+            }
+        }
+        return rsl;
+    }
+}
+/*
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.Random;
@@ -23,7 +108,6 @@ public class Tracker {
 
     public Item[] findAll() {
         return Arrays.copyOf(items, position);
-
     }
 
     public Item[] findByName(String pName) {
@@ -35,7 +119,6 @@ public class Tracker {
             }
         }
         return Arrays.copyOf(result, stepResult);
-
     }
 
     private int indexOf(String pId) {
@@ -79,3 +162,5 @@ public class Tracker {
         return result;
     }
 }
+
+ */
