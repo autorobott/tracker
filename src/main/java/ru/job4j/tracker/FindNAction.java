@@ -1,5 +1,7 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 public class FindNAction implements UserAction {
     private final Output out;
 
@@ -15,8 +17,8 @@ public class FindNAction implements UserAction {
     @Override
     public boolean execute(Input pInput, Tracker pTracker) {
         int position = 0;
-        Item[] findItems = pTracker.findByName(pInput.askStr("Enter name: "));
-        for (Item items : findItems) {
+        List<Item> steck = pTracker.findByName(pInput.askStr("Enter name: "));
+        for (Item items : steck) {
             out.printLn(position++ + ". " + items.getName() + " : " + items.getId());
         }
         out.printLn("_________________________________________________________________________");
