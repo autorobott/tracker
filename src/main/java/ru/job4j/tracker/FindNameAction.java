@@ -2,10 +2,10 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
-public class FindNAction implements UserAction {
+public class FindNameAction implements UserAction {
     private final Output out;
 
-    public FindNAction(Output pOut) {
+    public FindNameAction(Output pOut) {
         out = pOut;
     }
 

@@ -1,9 +1,9 @@
 package ru.job4j.tracker;
 
-public class FindIAction implements UserAction {
+public class FindByIdAction implements UserAction {
     private final Output out;
 
-    public FindIAction(Output pOut) {
+    public FindByIdAction(Output pOut) {
         out = pOut;
     }
 

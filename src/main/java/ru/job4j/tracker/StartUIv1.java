@@ -30,15 +30,15 @@ public class StartUIv1 {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ValidateInput();
+        Input input = new ValidateInput(new ConsoleInput(), output);
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
                 new DeletAction(output),
-                new FindAction(output),
+                new FindAllAction(output),
                 new EditAction(output),
-                new FindIAction(output),
-                new FindNAction(output),
+                new FindByIdAction(output),
+                new FindNameAction(output),
                 new ExitAction(output)
         };
         new StartUIv1(output).init(input, tracker, actions);
