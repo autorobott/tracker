@@ -8,6 +8,6 @@ public class FactTest {
     @Test(expected = IllegalArgumentException.class)
         public void whenFact() {
             Fact fact = new Fact();
-            fact.calc(0);
+            fact.calc(-1);
         }
 }
