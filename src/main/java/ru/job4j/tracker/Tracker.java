@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.*;
 
 public class Tracker {
-  List<Item> items = new ArrayList<Item>();
+  private List<Item> items = new ArrayList<Item>();
 
     public Item add(Item pItem) {
         pItem.setId(generateId());
@@ -29,24 +29,20 @@ public class Tracker {
         }
         return steck;
     }
-/*
+
     private int indexOf(String pId) {
         int result = -1;
-        for (int index = 0; index < position; index++) {
-            if (items[index].getId().equals(pId)) {
+        for (int index = 0; index < items.size(); index++) {
+            if (items.get(index).getId().equals(pId)) {
                 result = index;
                 break;
             }
         }
         return result;
     }
-*/
+
     public Item findById(String pId) {
-        Item rsl = null;
-        for (Item buff : items) {
-            if (buff.getId().equals(pId)) rsl = buff;
-        }
-        return rsl;
+        return items.get(indexOf(pId));
     }
 
     public boolean replace(String pId, Item pItem) {

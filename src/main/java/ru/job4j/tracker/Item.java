@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import static java.lang.CharSequence.compare;
 
-public class Item implements Comparable<Item> {
+public class Item implements Comparable<Item>, InputItem {
     private String id;
     private String name;
 
@@ -58,6 +58,6 @@ public class Item implements Comparable<Item> {
 
     @Override
     public int compareTo(Item another) {
-        return compare(name, another.name);
+        return compare(name, another.getName());
     }
 }

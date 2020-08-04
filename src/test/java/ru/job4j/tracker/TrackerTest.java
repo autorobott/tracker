@@ -1,6 +1,11 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
@@ -17,36 +22,21 @@ public class TrackerTest {
 
     @Test
     public void findByNameTest() {
-        int sizeResult = 2;
-        Item[] itemTest = new Item[sizeResult];
-        Item item1 = new Item("test1");
-        Item item2 = new Item("test2");
-        itemTest[0] = item1;
-        itemTest[1] = item1;
-        Item[] result = new Item[sizeResult];
         Tracker trackerTest = new Tracker();
-        trackerTest.add(item1);
-        trackerTest.add(item2);
-        trackerTest.add(item1);
-        trackerTest.add(item2);
-        assertThat(itemTest, is(trackerTest.findByName("test1")));
+        List<Item> expected = Arrays.asList(
+                trackerTest.add(new Item("name1"))
+        );
+        assertThat(expected, is(trackerTest.findByName("name1")));
     }
 
     @Test
     public void findAllTest() {
-        int sizeResult = 3;
-        Item[] itemTest = new Item[sizeResult];
-        Item item1 = new Item("test1");
-        Item item2 = new Item("test2");
-        itemTest[0] = item1;
-        itemTest[1] = item2;
-        itemTest[2] = item1;
-        Item[] result = new Item[sizeResult];
         Tracker trackerTest = new Tracker();
-        trackerTest.add(item1);
-        trackerTest.add(item2);
-        trackerTest.add(item1);
-        assertThat(itemTest, is(trackerTest.findAll()));
+        List<Item> expected = Arrays.asList(
+                trackerTest.add(new Item("name1")),
+                trackerTest.add(new Item("name2"))
+        );
+        assertThat(expected, is(trackerTest.findAll()));
     }
 
     @Test
@@ -60,14 +50,14 @@ public class TrackerTest {
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
 
-    @Test
+    @Test (expected = IndexOutOfBoundsException.class)
     public void whenDelete() {
         Tracker tracker = new Tracker();
         Item bug = new Item("Bug");
         tracker.add(bug);
         String id = bug.getId();
         tracker.delete(id);
-        assertThat(tracker.findById(id), is(nullValue()));
+       tracker.findById(id);
     }
 
 }
