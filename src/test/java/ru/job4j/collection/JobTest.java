@@ -26,7 +26,7 @@ public class JobTest {
                 new Job("B", 2),
                 new Job("A", 3)
         );
-        Collections.sort(in, new JobDescByNameMax());
+        Collections.sort(in, new JobDescByNameMin());
         assertThat(expect, is(in));
     }
 
@@ -42,7 +42,7 @@ public class JobTest {
                 new Job("B", 2),
                 new Job("C", 1)
         );
-        Collections.sort(in, new JobDescByNameMin());
+        Collections.sort(in, new JobDescByNameMax());
         assertThat(expect, is(in));
     }
 
