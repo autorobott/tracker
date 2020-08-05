@@ -15,32 +15,11 @@ public class  FindEl {
         return rsl;
     }
 
-    public static boolean sent(String pValue, String[] pAbuses) throws ElementNotFoundException {
-        //if cintains throw ElementAbuseException
-        return true;
-    }
-
-    public static void process(String[] pValue, String pKey, String[] pAbuses) {
-        try {
-            if (indexOf(pValue, pKey) != -1) {
-                sent(pKey, pAbuses);
-            }
-        } catch (ElementAbuseException ea) {
-
-        } catch (ElementNotFoundException en) {
-
-        } catch (Exception e) {
-
-        } catch (Throwable th) {
-
-        }
-    }
-
     static public void main(String[] args) {
         try {
-            indexOf(new String[] {"test", null}, "test");
+            indexOf(new String[] {"test" , "123"}, "test1");
         } catch (ElementNotFoundException e) {
-
+            e.printStackTrace();
         }
     }
 }
