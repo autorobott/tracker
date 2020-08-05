@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
-
+/*
 import java.util.Scanner;
 
 import static org.hamcrest.core.Is.is;
@@ -39,7 +39,6 @@ public class StartUITest {
         Item deletItems = tracker.findById(item.getId());
         assertThat(deletItems, is(nullValue()));
     }
-   /*
     @Test
     public void whenExit() {
         Output out = new StubOutput();
@@ -48,14 +47,17 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         UserAction[] actions = {
-                new ExitAction()
+                new ExitAction(out)
         };
         new StartUIv1(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
-                        "0. Exit" + System.lineSeparator()
+                        "0. Exit" + System.lineSeparator() +
+                        "Exit." + System.lineSeparator()
         ));
     }
-    */
+
 }
+
+ */
 

@@ -1,5 +1,5 @@
 package ru.job4j.tracker;
-
+/*
 public class StartUI {
 
     public static void createItem(Input pInput, Tracker pTracker) {
@@ -108,3 +108,6 @@ public class StartUI {
         new StartUI().init(input, tracker);
     }
 }
+
+ */
+// Переделал с Item[] на List<Item>

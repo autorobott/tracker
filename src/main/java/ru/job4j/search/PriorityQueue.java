@@ -22,4 +22,31 @@ public class PriorityQueue {
             System.out.println(value.getDesc() + " : (" + value.getPriority() + ")");
         }
     }
+
+    public static void main(String[] args) {
+        Task p1 = new Task( "1", 1);
+        Task p2 = new Task( "2", 2);
+        Task p3 = new Task( "3", 3);
+        Task p4 = new Task( "4", 4);
+        PriorityQueue tasks = new PriorityQueue();
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+        tasks.put(p2);
+        tasks.getAll();
+        System.out.println("    ");
+
+    }
 }
