@@ -43,16 +43,23 @@ public class Tracker {
     }
 
     public Item findById(String pId) {
+        Item rsl = null;
         int index = indexOf(pId);
-        if (index == -1) {
-
+        if (index != -1) {
+        rsl = items.get(index);
         }
-        return items.get(indexOf(pId));
+        return rsl;
     }
 
     public boolean replace(String pId, Item pItem) {
-        items.set(indexOf(pId), pItem);
-        return false;
+        boolean rsl = false;
+        int index = indexOf(pId);
+        if (index != -1) {
+            pItem.setId(pId);
+            items.set(index, pItem);
+            rsl = true;
+        }
+        return rsl;
     }
 
     public boolean delete(String pId) {

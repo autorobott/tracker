@@ -7,6 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.core.IsNull.nullValue;
 
@@ -50,14 +51,15 @@ public class TrackerTest {
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
 
-    @Test (expected = IndexOutOfBoundsException.class)
+    @Test
     public void whenDelete() {
         Tracker tracker = new Tracker();
         Item bug = new Item("Bug");
         tracker.add(bug);
         String id = bug.getId();
         tracker.delete(id);
-       tracker.findById(id);
+        tracker.findById(id);
+        assertNull(tracker.findById(id));
     }
 
 }

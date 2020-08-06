@@ -45,13 +45,16 @@ public class Item implements Comparable<Item> {
             return false;
         }
         Item that = (Item) o;
-        return Objects.equals(name, that.getName()) && Objects.equals(id, that.getId());
+        return Objects.equals(name, that.getName())
+                && Objects.equals(id, that.getId());
     }
 
     @Override
     public String toString() {
         return "Item{"
-                + "name='" + name + '\''
+                + "name='"
+                + name
+                + '\''
                 + ", priority=" + id
                 + '}';
     }
