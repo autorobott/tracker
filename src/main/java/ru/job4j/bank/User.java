@@ -1,8 +1,9 @@
 package ru.job4j.bank;
 
+import java.util.Comparator;
 import java.util.Objects;
 
-public class User /*implements Comparable<User>/* {
+public class User {
     private String passport;
     private String username;
 
@@ -26,12 +27,7 @@ public class User /*implements Comparable<User>/* {
     public void setUsername(String username) {
         this.username = username;
     }
-/*
-    @Override
-    public int compareTo(User another) {
-        return passport.compareTo(another.getPassport());
-    }
- */
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
