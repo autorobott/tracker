@@ -1,3 +1,4 @@
+
 package ru.job4j.tracker;
 
 import java.util.*;
@@ -42,23 +43,16 @@ public class Tracker {
     }
 
     public Item findById(String pId) {
+        int index = indexOf(pId);
+        if (index == -1) {
+
+        }
         return items.get(indexOf(pId));
     }
 
     public boolean replace(String pId, Item pItem) {
-        boolean rsl = false;
-        int index = 0;
-        for (Item buff : items) {
-            if (buff.getId().equals(pId)) {
-                pItem.setId(buff.getId());
-                items.remove(index);
-                items.add(index, pItem);
-                rsl = true;
-                break;
-            }
-            index++;
-        }
-        return rsl;
+        items.set(indexOf(pId), pItem);
+        return false;
     }
 
     public boolean delete(String pId) {
@@ -75,3 +69,5 @@ public class Tracker {
         return rsl;
     }
 }
+
+

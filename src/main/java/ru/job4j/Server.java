@@ -22,7 +22,7 @@ public class Server {
             DataOutputStream out = new DataOutputStream(sout);
 
             String line = null;
-            while(true) {
+            while (true) {
                 line = in.readUTF(); // ожидаем пока клиент пришлет строку текста.
                 System.out.println("The dumb client just sent me this line : " + line);
                 System.out.println("I'm sending it back...");
@@ -31,6 +31,8 @@ public class Server {
                 System.out.println("Waiting for the next line...");
                 System.out.println();
             }
-        } catch(Exception x) { x.printStackTrace(); }
+        } catch (Exception x) {
+            x.printStackTrace();
+        }
     }
 }

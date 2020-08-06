@@ -7,7 +7,7 @@ import java.util.Objects;
 
 import static java.lang.CharSequence.compare;
 
-public class Item implements Comparable<Item>, InputItem {
+public class Item implements Comparable<Item> {
     private String id;
     private String name;
 
@@ -50,10 +50,10 @@ public class Item implements Comparable<Item>, InputItem {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "name='" + name + '\'' +
-                ", priority=" + id +
-                '}';
+        return "Item{"
+                + "name='" + name + '\''
+                + ", priority=" + id
+                + '}';
     }
 
     @Override

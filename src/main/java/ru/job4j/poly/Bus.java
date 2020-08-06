@@ -20,7 +20,7 @@ public class Bus implements Transport {
 
     @Override
     public void goTransport() {
-        if (gas > 0 ) {
+        if (gas > 0) {
             gas--;
             System.out.println("Transport GO");
         } else {
@@ -32,7 +32,7 @@ public class Bus implements Transport {
     @Override
     public void passengers(int pPassengers) {
         if ((passengetsMax - passengets) > pPassengers) {
-            passengets =+ pPassengers;
+            passengets += pPassengers;
         } else {
             System.out.println("Everything doesn't fit");
         }
@@ -41,13 +41,13 @@ public class Bus implements Transport {
     @Override
     public double gasUp(int pGas) {
         double price = 0;
-        if ((pGas + gas) > gasMax ) {
+        if ((pGas + gas) > gasMax) {
            gas = pGas - (gasMax - gas);
            gas = pGas - gas;
             price = gas * gasPrice;
            System.out.println("Full tank !");
         } else {
-            gas =+ pGas;
+            gas += pGas;
             price = pGas * gasPrice;
         }
         return price;

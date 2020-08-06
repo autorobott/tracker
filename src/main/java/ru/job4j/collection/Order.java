@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Order {
     private String number;
     private String name;
-    public Order(String pNumber, String pName ) {
+    public Order(String pNumber, String pName) {
         number = pNumber;
         name = pName;
     }
@@ -16,10 +16,14 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
-                "number='" + number + '\'' +
-                ", name='" + name + '\'' +
-                '}';
+        return "Order{"
+                + "number='"
+                + number
+                + '\''
+                + ", name='"
+                + name
+                + '\''
+                + '}';
     }
 
     @Override
@@ -31,8 +35,8 @@ public class Order {
             return false;
         }
         Order order = (Order) o;
-        return Objects.equals(number, order.number) &&
-                Objects.equals(name, order.name);
+        return Objects.equals(number, order.number)
+                && Objects.equals(name, order.name);
     }
 
     @Override

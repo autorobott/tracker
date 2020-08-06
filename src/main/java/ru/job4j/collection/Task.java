@@ -4,7 +4,7 @@ public class Task {
     private String number;
     private String description;
 
-    public Task(String pNumder, String pDescription ) {
+    public Task(String pNumder, String pDescription) {
         number = pNumder;
         description = pDescription;
     }
