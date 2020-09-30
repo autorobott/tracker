@@ -9,7 +9,9 @@ public class PhoneDictionaryTest {
     @Test
     public void whenFindByName() {
         PhoneDicInter phones = new PhoneDictionary();
-        phones.add(new Person("Nikolay", "Ovchennikov", "89145849834", "Koroleva 50"));
+        phones.add(
+                new Person("Nikolay", "Ovchennikov", "89145849834", "Koroleva 50")
+        );
         ArrayList<Person> perOut = phones.find("Nikolay");
         assertThat(perOut.get(0).getName(), is("Nikolay"));
     }
